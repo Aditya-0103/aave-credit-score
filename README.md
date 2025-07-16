@@ -40,27 +40,40 @@ All scores are clamped between 0 and 1000 for interpretability.
 
 ## Project Structure
 
-
+```
 aave-credit-score/
 │
 ├── data/                     # Input files
-│   └── user\_transactions.json
-├── output/                   # Final score output
-│   └── wallet\_scores.csv
+│   └── user-wallet-transactions.zip
+├── output                   # Final score output
+│   └── wallet_scores.csv
 │
 ├── src/
-│   ├── data\_loader.py        # Parses and flattens raw JSON
-│   ├── feature\_engineering.py # Extracts wallet-level features
+│   ├── data_loader.py        # Parses and flattens raw JSON
+│   ├── feature_engineering.py # Extracts wallet-level features
 │   ├── model.py              # Scoring logic
-│   └── score\_generator.py    # One-step script
+│   └── score_generator.py    # One-step script
 │
 ├── analysis.md               # Score distribution + insights
 └── README.md                 # This file
-
+```
 
 ---
 
 ## How to Run
+
+### 📦 Dataset Setup
+
+Due to its size, the dataset is stored as a ZIP file inside the `data/` folder.
+
+Before running the script, unzip the dataset:
+
+```bash
+unzip data/user-wallet-transactions.zip -d data/
+```
+This will extract the JSON file (e.g., `user-wallet-transaction.json`) into the same data/ directory.
+
+Ensure your `score_generator.py` uses the correct JSON filename (e.g., `data/user-wallet-transactions.json`).
 
 ### Setup
 
